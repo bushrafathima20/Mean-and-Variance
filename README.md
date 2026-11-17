@@ -49,32 +49,37 @@ It shows the distance of a random variable from its mean. It is calcualted as
 
 # Program :
 ```
-L=[int(i) for i in input().split()]
-N=len(L)
-M=max(L)
-x=[]
-f=[]
-for i in range (M+1):
-    c = 0
-    for j in range(N):
-        if L[j]==i:
-            c=c+1
-    f.append(c)
-    x.append(i)
-Sf=np.sum(f)
+n = int(input("Enter number of values: "))
+
+x = []
+
 p=[]
-for i in range(M+1):
-    p.append(f[i]/Sf)
-mean=np.inner(x,p)
-Ex2=np.inner(np.square(x),p)
-var=Ex2-mean**2
-sd=np.sqrt(var)
-print(f"The Mean arrival rate is {mean:.3f} ")
-print(f"The Variance of arrival from feeder is {var:.3f}")
-print(f"The Standard deviation of arrival from feeder is {sd:.3f}")
+print("Enter values of x: ")
+for i in range(n):
+
+ x.append(float(input()))
+print("Enter probabilities: ")
+for i in range(n):
+
+ p.append(float(input()))
+mean=0
+
+for i in range(n):
+
+ mean+=x[i]*p[i]
+
+ex2=0
+
+for i in range(n):
+
+ ex2+=(x[i] ** 2)*p[i]
+variance=ex2-mean ** 2
+print("Mean=",mean)
+print("Variance=",variance)
 ```
-# Output : 
-<img width="532" height="95" alt="image" src="https://github.com/user-attachments/assets/09c2b3cf-4126-42fa-b3a3-173976d2a46a" />
+# Output :
+<img width="311" height="255" alt="image" src="https://github.com/user-attachments/assets/fab057a5-f52a-444f-8c65-d90b1dbca8a3" />
+
 # Results :
 The mean and variance of arrivals of objects from feeder using probability distribution are calculated.
 
